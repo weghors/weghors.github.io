@@ -4,7 +4,6 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
 import { Eye, EyeOff, Mail, Sparkles } from "lucide-react";
-import { cn } from "../lib/utils";
 
 const Pupil = ({ size = 12, maxDistance = 5, pupilColor = "black", forceLookX, forceLookY }) => {
   const [mouseX, setMouseX] = useState(0);
@@ -75,7 +74,7 @@ const EyeBall = ({ size = 48, pupilSize = 16, maxDistance = 10, eyeColor = "whit
     }
     const eye = eyeRef.current.getBoundingClientRect();
     const eyeCenterX = eye.left + eye.width / 2;
-    const eyeCenterY = eye.top + eye.height / 2;
+    const eyeCenterY = eye.top + eye.height / 3;
     const deltaX = mouseX - eyeCenterX;
     const deltaY = mouseY - eyeCenterY;
     const distance = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2), maxDistance);
@@ -423,10 +422,10 @@ const handleSubmit = async (e) => {
           <a href="mailto:2049132480@qq.com" className="hover:text-primary-foreground transition-colors">
             发送邮件给我
           </a>
-          <a href="https://user.qzone.qq.com/2049132480/infocenter?loginfrom=31"  target="_blank" className="hover:text-primary-foreground transition-colors">
+          <a href="https://user.qzone.qq.com/2049132480/infocenter?loginfrom=31" target="_blank" rel="noreferrer" className="hover:text-primary-foreground transition-colors">
             个人QQ空间
           </a>
-          <a href="https://space.bilibili.com/352177295?spm_id_from=333.1007.0.0" target="_blank" className="hover:text-primary-foreground transition-colors">
+          <a href="https://space.bilibili.com/352177295?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" className="hover:text-primary-foreground transition-colors">
             哔哩哔哩
           </a>
         </div>
@@ -504,12 +503,13 @@ const handleSubmit = async (e) => {
                   记住我
                 </Label>
               </div>
-              <a
-                href="#"
+              <button
+                type="button"
                 className="text-sm text-primary hover:underline font-medium"
+                onClick={() => {}} // 保持占位功能，可根据需要添加实际逻辑
               >
                 忘记密码?
-              </a>
+              </button>
             </div>
 
             {error && (
@@ -541,9 +541,13 @@ const handleSubmit = async (e) => {
 
           <div className="text-center text-sm text-muted-foreground mt-8">
             没有帐户？{" "}
-            <a href="#" className="text-foreground font-medium hover:underline">
+            <button
+              type="button"
+              className="text-foreground font-medium hover:underline"
+              onClick={() => {}} // 保持占位功能
+            >
               ← 返回首页
-            </a>
+            </button>
           </div>
         </div>
       </div>
