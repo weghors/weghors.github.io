@@ -506,7 +506,7 @@ const handleSubmit = async (e) => {
               <button
                 type="button"
                 className="text-sm text-primary hover:underline font-medium"
-                onClick={() => {}} // 保持占位功能，可根据需要添加实际逻辑
+                onClick={() => {}}
               >
                 忘记密码?
               </button>
@@ -544,7 +544,7 @@ const handleSubmit = async (e) => {
             <button
               type="button"
               className="text-foreground font-medium hover:underline"
-              onClick={() => {}} // 保持占位功能
+              onClick={() => {}}
             >
               ← 返回首页
             </button>
